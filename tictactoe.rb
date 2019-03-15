@@ -134,7 +134,7 @@ puts "To play the game you enter a number between 0 and 8"
 puts         "Each number repesents a square on the board"
 puts                          "Please enter Player 1 name"
 player_a = gets.chomp
-puts "Please enter Player 2 name"
+puts                          "Please enter Player 2 name"
 player_b = gets.chomp
 game = Game.new(player_a, player_b)
 
