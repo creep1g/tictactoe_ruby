@@ -21,10 +21,10 @@ class Game
   end
 
   def game_over?
-    if  player_a_won? == true
+    if  winner?("X") == true
       puts "#{@player_a} wins!"
       return true
-    elsif player_b_won? == true
+    elsif winner?("X") == true
       puts "#{@player_b} wins!"
       return true
     elsif @@board[0..8].all? { |i| i != " "}
@@ -60,40 +60,21 @@ class Game
   end
 
   private
-  def player_a_won?
-    #checks horizontal
-    if @@board[0..2].all? { |i| i == "X"} ||
-       @@board[3..5].all? { |i| i == "X"} || 
-       @@board[6..8].all? { |i| i == "X"}
+
+  def winner?(piece)
+        #checks horizontal
+    if @@board[0..2].all? { |i| i == piece} ||
+       @@board[3..5].all? { |i| i == piece} || 
+       @@board[6..8].all? { |i| i == piece}
       return true
     #checks vertical 
-    elsif (@@board[0] == "X" && @@board[3] == "X" && @@board[6] == "X") || 
-          (@@board[1] == "X" && @@board[4] == "X" && @@board[7] == "X") || 
-          (@@board[2] == "X" && @@board[5] == "X" && @@board[8] == "X") 
+    elsif (@@board[0] == piece && @@board[3] == piece && @@board[6] == piece) || 
+          (@@board[1] == piece && @@board[4] == piece && @@board[7] == piece) || 
+          (@@board[2] == piece && @@board[5] == piece && @@board[8] == piece) 
       return true
     #check slash?
-    elsif (@@board[0] == "X" && @@board[4] == "X" && @@board[8] == "X") ||
-          (@@board[2] == "X" && @@board[4] == "X" && @@board[6] == "X")
-      return true
-    else
-      return false
-    end
-  end
-
-  def player_b_won?
-    #checks horizontal
-    if @@board[0..2].all? { |i| i == "O"} ||
-       @@board[3..5].all? { |i| i == "O"} ||
-       @@board[6..8].all? { |i| i == "O"}
-      return true
-    #checks vertical   
-    elsif (@@board[0] == "O" && @@board[3] == "O" && @@board[6] == "O") || 
-          (@@board[1] == "O" && @@board[4] == "O" && @@board[7] == "O") || 
-          (@@board[2] == "O" && @@board[5] == "O" && @@board[8] == "O")
-      return true
-     #check slash?
-    elsif (@@board[0] == "O" && @@board[4] == "O" && @@board[8] == "O") ||
-          (@@board[2] == "O" && @@board[4] == "O" && @@board[6] == "O")
+    elsif (@@board[0] == piece && @@board[4] == piece && @@board[8] == piece) ||
+          (@@board[2] == piece && @@board[4] == piece && @@board[6] == piece)
       return true
     else
       return false
