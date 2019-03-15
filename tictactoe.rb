@@ -35,7 +35,6 @@ class Game
     end
   end
 
-
   def round(player_id)
     valid = false
     while valid == false
@@ -59,8 +58,6 @@ class Game
       end
     end
   end
-
- 
 
   private
   def player_a_won?
@@ -102,7 +99,6 @@ class Game
       return false
     end
   end
-
   
   def print_board
     puts
